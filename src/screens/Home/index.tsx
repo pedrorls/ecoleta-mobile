@@ -1,19 +1,17 @@
 import React from "react";
-import {
-  ImageBackground,
-  View,
-  Image,
-  StyleSheet,
-  Text,
-  Icon,
-} from "react-native";
+import { ImageBackground, View, Image, StyleSheet, Text } from "react-native";
 import { AppLoading } from "expo";
 import { Feather } from "@expo/vector-icons";
 import { Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
 import { Ubuntu_700Bold, useFonts } from "@expo-google-fonts/ubuntu";
 import { RectButton } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 export const Home = () => {
+  const navigation = useNavigation();
+
+  const handleNavigation = () => navigation.navigate("Points");
+
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
     Roboto_500Medium,
@@ -37,7 +35,7 @@ export const Home = () => {
         </Text>
       </View>
       <View style={styles.footer}>
-        <RectButton style={styles.button} onPress={() => {}}>
+        <RectButton style={styles.button} onPress={handleNavigation}>
           <View style={styles.buttonIcon}>
             <Text>
               <Feather name="arrow-right" color="#fff" size={24} />
